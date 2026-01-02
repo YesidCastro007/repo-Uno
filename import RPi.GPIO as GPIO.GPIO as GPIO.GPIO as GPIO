@@ -1,0 +1,51 @@
+import RPi.GPIO as GPIO
+import time
+
+# Configuración de los pines
+servo_pin = 7  # Pin GPIO donde está conectado el servo (puedes cambiarlo si es otro)
+
+# Configuración de la librería RPi.GPIO
+GPIO.setmode(GPIO.BOARD)  # Usar el sistema de numeración de pines físicos
+GPIO.setup(servo_pin, GPIO.OUT)
+
+# Configuración del PWM (frecuencia de 50 Hz)
+servo_pwm = GPIO.PWM(servo_pin, 50)
+servo_pwm.start(0)  # Iniciar PWM con ciclo de trabajo 0%
+
+# Función para mover el servo a un ángulo específico
+def mover_servo(angulo):
+    # Convertir el ángulo (0-180) a un ciclo de trabajo (duty cycle)
+    if angulo < 0 or angulo > 180:
+        print("Ángulo fuera de rango. Debe estar entre 0 y 180 grados.")
+        return
+    
+    duty = (angulo / 18) + 2  # Calcula el duty cycle
+    servo_pwm.ChangeDutyCycle(duty)  # Cambiar el ciclo de trabajo del PWM
+    print(f"Moviendo el servo a {angulo} grados")
+    time.sleep(1)  # Espera para permitir que el servo se mueva
+
+# Función para limpiar los pines GPIO y detener el PWM
+def limpiar():
+    servo_pwm.stop()  # Detener PWM
+    GPIO.cleanup()  # Limpiar la configuración de los pines GPIO
+    print("GPIO limpiado y PWM detenido.")
+
+# Prueba de movimiento del servo
+try:
+    while True:
+        mover_servo(0)   # Mover el servo a 0 grados
+        time.sleep(2)
+        
+        mover_servo(90)  # Mover el servo a 90 grados
+        time.sleep(2)
+        
+        mover_servo(180) # Mover el servo a 180 grados
+        time.sleep(2)
+
+except KeyboardInterrupt:
+    print("Programa interrumpido por el usuario.")
+
+finally:
+    limpiar()  # Limpiar los pines cuando se interrumpe el programa
+
+

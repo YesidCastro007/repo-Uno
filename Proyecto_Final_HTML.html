@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASDEJU - Innovación Deportiva</title>
+  <link rel="stylesheet" href="Proyecto_Final_CSS.css">
+</head>
+<body>
+  <header id="header">
+    <div class="logo" >
+      <img src="Imagenes/imagen.png" alt="ASDEJU Logo">
+    </div>
+    <nav>
+      <a href="#home">Inicio</a>
+      <a href="#services">Servicios</a>
+      <a href="#academy">Academia</a>
+      <a href="#products">Productos</a>
+      <a href="#contact">Contacto</a>
+      <a href="#quote">Cotización Arbitraje</a>
+      <a href="#quote-carnet">Cotización Carnetización</a>
+      <a href="#estudio">Estudio</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Innovación Deportiva</h1>
+      <p>Transformamos el futuro del deporte con tecnología y pasión.</p>
+    </div>
+  </section>
+
+  <section class="section services-section" id="services">
+    <h2>Carnetización Digital</h2>
+    <p>Ofrecemos impresión de carnets digitales personalizados para árbitros, entrenadores y personal técnico de todas las disciplinas.</p>
+  </section>
+
+  <section class="section academy-section" id="academy">
+    <h2>Academia</h2>
+    <p>Conoce a nuestros instructores expertos que te capacitarán en las normas del deporte.</p>
+    <div class="instructors-container">
+      <div class="instructor">
+        <img src="Imagenes/arbitro_de_futbol.png" alt="Juez de futbol">
+        <h3>Juan Pérez</h3>
+        <p>15 años de experiencia en fútbol profesional, especializado en tácticas y estrategias de juego.</p>
+      </div>
+      <div class="instructor">
+        <img src="Imagenes/arbitro_boxeo.png" alt="Juez Boxeo">
+        <h3>María Gómez</h3>
+        <p>8 años de experiencia como juez de boxeo, estando en las peleas más importantes del mundo.</p>
+      </div>
+      <div class="instructor">
+        <img src="Imagenes/arbitro_basquet.png" alt="Juez Basquet">
+        <h3>Carlos Rodríguez</h3>
+        <p>Árbitro internacional con 20 años de experiencia, experto en reglamentación deportiva y gestión de partidos.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section products-section" id="products">
+    <h2>Productos Deportivos</h2>
+    <div class="products-container">
+      <div class="product">
+        <img src="Imagenes/silbato.png" alt="Silbato Profesional">
+        <h3>Silbato Profesional</h3>
+        <p>$80.000</p>
+      </div>
+      <div class="product">
+        <img src="Imagenes/Uniforme_Arbitro.png" alt="Uniforme Deportivo">
+        <h3>Uniforme Deportivo</h3>
+        <p>$120.000</p>
+      </div>
+      <div class="product">
+        <img src="Imagenes/Zapatillas.png" alt="Zapatillas Deportivas">
+        <h3>Zapatillas Deportivas</h3>
+        <p>$200.000</p>
+      </div>
+      <div class="product" >
+        <img src="Imagenes/kit_arbitraje.png" alt="Guantes de Portero">
+        <h3>Guantes de Portero</h3>
+        <p>$80.000</p>
+      </div>
+    </div>
+  </section>
+  <section class="section estudio-section" id="estudio">
+    <h2>Estudio Deportivo</h2>
+    <p>Realizamos estudios exhaustivos que analizan el comportamiento y las ventajas de los equipos según factores como la edad, contextura fisica y otras variables clave, permitiéndonos identificar patrones que contribuyen al éxito y al rendiemiento.</p>
+    <div class="chart">
+    <div class="charts-container">
+        <h3>Distribución de Torneos por los Equipos Antropométricos </h3>
+        <img src="Imagenes/Distribución_Torneos_Ganados.png">
+      </div>
+    </div>
+  </section>
+
+  <section class="section colap-section">
+    <h2>Análisis Deportivos</h2>
+    <button onclick="window.open('https://colab.research.google.com/drive/1C-iFL0FZIAC-Jv7Ch9ETb5DUHvlbGqv5#scrollTo=GKkKqRRt9eqj ')">Click</button>
+  </section>
+   
+  <section class="section Principios">
+    <h2>Planificación del Proyecto</h2>
+    <button onclick="window.open('https://trello.com/b/r22VPSNP/planificacion-proyecto-asdeju ')">Click</button>
+  </section>
+  
+  <section class="section quote-section" id="quote">
+    <h2>Cotización Arbitraje</h2>
+    <form id="cotizacionForm">
+      <label for="deporte">Selecciona el deporte:</label>
+      <select id="deporte" required>
+        <option value="baloncesto">Baloncesto - $120.000</option>
+        <option value="voleibol">Voleibol - $100.000</option>
+        <option value="futbol">Fútbol - $250.000</option>
+        <option value="futbol_sala">Fútbol Sala - $90.000</option>
+        <option value="futbol_salon">Fútbol de Salón - $90.000</option>
+      </select>
+      <label for="cantidad">Cantidad de partidos:</label>
+      <input type="number" id="cantidad" min="1" required>
+      <button type="button" onclick="calcularCotizacion()">Calcular</button>
+      <p id="resultadoCotizacion"></p>
+    </form>
+  </section>
+
+  <section class="section quote-section" id="quote-carnet">
+    <h2>Cotización Carnetización</h2>
+    <form id="cotizacionCatent">
+      <label for="Carnet">Selecciona el tipo de carnet:</label>
+      <select id="Carnet" required>
+        <option value="virtual">Virtual - $4.000</option>
+        <option value="fisico">Físico - $8.000</option>
+      </select>
+      <label for="cantidad1">Cantidad de carnets:</label>
+      <input type="number" id="cantidad1" min="1" required>
+      <button type="button" onclick="calcularCarnet()">Calcular</button>
+      <p id="resultadoCarnet"></p>
+    </form>
+  </section>
+
+   <section class="section contact-section" id="contact">
+    <h2>Contacto</h2>
+    <p>Correo Electrónico: Asociaciondeportiva@gmail.com</p>
+    <p>Instagram: Asociaciondeportiva</p>
+    <p>Teléfono: 3213181337</p>
+  </section>
+
+  <script src="Proyecto_Final_JS.js"></script>
+</body>
+</html>
